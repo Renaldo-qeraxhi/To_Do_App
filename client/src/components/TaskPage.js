@@ -12,7 +12,7 @@ function TaskPage() {
 
   useEffect(() => {
     if (!token) return;
-    fetch("http://localhost:4000/tasks", {
+    fetch("https://to-do-backend.onrender.com/tasks", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -31,7 +31,7 @@ function TaskPage() {
     );
 
   const toggleTask = async (id, done) => {
-    await fetch(`http://localhost:4000/tasks/${id}`, {
+    await fetch(`https://to-do-backend.onrender.com/tasks/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function TaskPage() {
   };
 
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:4000/tasks/${id}`, {
+    await fetch(`https://to-do-backend.onrender.com/tasks/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -57,7 +57,7 @@ function TaskPage() {
 
   const saveEdit = async (id) => {
     if (!editingText.trim()) return;
-    await fetch(`http://localhost:4000/tasks/${id}`, {
+    await fetch(`https://to-do-backend.onrender.com/auth/register/tasks/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ function TaskPage() {
   // Add a new task
   const addTask = async () => {
     if (!newTaskText.trim()) return;
-    const response = await fetch("http://localhost:4000/tasks", {
+    const response = await fetch("https://to-do-backend.onrender.com/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
